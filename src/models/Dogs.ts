@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 
+// Dog Schema
 const dogSchema = new mongoose.Schema({
   name: String,
   age: Number,

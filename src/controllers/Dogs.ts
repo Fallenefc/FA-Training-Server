@@ -6,12 +6,13 @@ export const getDogs = async (_, res): Promise<void> => {
   res.send(doggos);
 }
 
+// Have to improve Post Dog to send the new as a response, or does it already send it? Yes, it does.
 export const postDog = async (req, res): Promise<void> => {
   try {
     const newDoggo = req.body;
-    await Dog.create(newDoggo);
+    const createdDog = await Dog.create(newDoggo);
     console.log(`Added to database: ${JSON.stringify(newDoggo)}`)
-    res.send(newDoggo)
+    res.send(createdDog)
   }
   catch (e) {
     console.error(`Error adding a dog to the database: ${e}`)
